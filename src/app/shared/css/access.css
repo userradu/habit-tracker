@@ -1,0 +1,87 @@
+.logo-section {
+    padding-top: 20px;
+}
+
+.logo-section a {
+    color: #fff;
+    font-size: 26px;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.logo-section i {
+    color: #fff;
+    font-size: 30px;
+}
+
+.form-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.form-wrapper input {
+    width: calc(100% - 30px);
+    background-color: #410275;
+    color: #fff;
+    border: none;
+    outline: none;
+    padding: 10px;
+}
+
+.form-group .control-icon {
+    position: relative;
+    top: 3px;
+    color: #fff;
+    font-size: 20px;
+}
+
+.input-bar {
+    height: 1px;
+    background-color: #fff;
+}
+
+.form-wrapper button {
+    width: 100%;
+    background-color: #410275;
+    border: 1px solid #fff;
+    color: #fff;
+    outline: none;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.form-wrapper button:hover {
+    background-color: #2B014E;
+}
+
+.link-section {
+    margin-top: 20px;
+}
+
+.link-section a,
+.link-section span {
+    color: #fff;
+}
+
+.link-section a {
+    text-decoration: none;
+}
+
+/* Change Autocomplete styles in Chrome*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: 1px solid #410275;
+  -webkit-text-fill-color: #fff;
+  -webkit-box-shadow: 0 0 0px 1000px #410275 inset;
+  caret-color: #fff !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
