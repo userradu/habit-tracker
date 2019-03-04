@@ -15,7 +15,7 @@
 
 .logo-section a {
     color: #fff;
-    font-size: 26px;
+    font-size: 24px;
     text-decoration: none;
     margin-right: 10px;
 }
@@ -88,5 +88,25 @@ input:checked + .slider:before {
 
 .selected-habbit-name {
     color: #fff;
+    font-size: 24px;
+}
+
+.user-section {
+    float: right;
+}
+
+.user-account-btn,
+.user-account-btn:hover,
+.user-account-btn:active,
+.user-account-btn:focus {
+    color: #fff;
+    border: none;
+    background-color: #410275 !important;
+    border-color: #410275 !important;
+    box-shadow: none !important;
+}
+
+.user-icon {
+    margin-right: 10px;
     font-size: 24px;
 }

@@ -12,4 +12,17 @@
 
   <span class="selected-habbit-name">All habits</span>
 
+  <div class="user-section">
+    <div ngbDropdown>
+      <button class="btn btn-outline-primary user-account-btn" ngbDropdownToggle>
+        <i class="fas fa-user user-icon"></i>
+        <span class="username">Jane Doe</span>
+      </button>
+      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+        <button class="dropdown-item"><i class="fas fa-cog"></i> Settings</button>
+        <button class="dropdown-item" routerLink="/login"><i class="fas fa-sign-out-alt"></i> Logout</button>
+      </div>
+    </div>
+  </div>
+
 </nav>
