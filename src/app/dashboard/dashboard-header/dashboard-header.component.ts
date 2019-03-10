@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardHeaderComponent implements OnInit {
 
+  public isUserSectionCollapsed = true;
+
   constructor() { }
 
   ngOnInit() {

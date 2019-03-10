@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardHeaderComponent } from './dashboard-header/dashboard-header.component';
 import { DashboardComponent } from './dashboard.component';
-import {NgbDropdownModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbDropdownModule, NgbCollapseModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -15,7 +15,8 @@ import {NgbDropdownModule} from '@ng-bootstrap/ng-bootstrap';
   imports: [
     CommonModule,
     DashboardRoutingModule,
-    NgbDropdownModule
+    NgbDropdownModule,
+    NgbCollapseModule
   ]
 })
 export class DashboardModule { }

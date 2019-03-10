@@ -1,36 +1,27 @@
-.menu-section {
-    position: relative;
+.habit-tracker-navbar {
     background-color: #410275;
-    padding: 10px;
-    text-align: center;
 }
 
-.left-side-components {
-    position: absolute;
-}
-
-.logo-section {
-    display: inline-block;
-}
-
-.logo-section a {
+.habit-tracker-brand * {
     color: #fff;
-    font-size: 24px;
+}
+
+.habit-tracker-brand a {
     text-decoration: none;
-    margin-right: 10px;
 }
 
-.logo-section i {
+.habit-tracker-brand a:hover {
     color: #fff;
-    font-size: 30px;
 }
 
+/* switch section */
 .switch {
     position: relative;
     display: inline-block;
     vertical-align: middle;
     width: 60px;
     height: 34px;
+    margin-bottom: 0px !important;
 }
 
 .switch input {
@@ -85,28 +76,55 @@ input:checked + .slider:before {
 .slider.round:before {
     border-radius: 50%;
 }
+/* /switch section */
+
+.user-section-dropdown {
+    cursor: pointer;
+}
+
+.user-section-dropdown .username,
+.user-section-dropdown .user-icon,
+.user-section-dropdown a::after {
+    color: #fff;
+}
+
+.user-section-dropdown i.user-icon {
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.navbar-toggler i {
+    color: #fff;
+}
+
+.selected-habbit-name {
+    position: absolute;
+    left: 50%;
+}
+
+@media only screen and (max-width: 576px) {
+    .habit-tracker-brand {
+        margin: 0 auto;
+    }
+
+    .switch {
+        position: absolute;
+        left: 0;
+        top: 0;
+        margin-top: 10px;
+        margin-left: 5px;
+    }
+
+    #navbar-content {
+        margin-top: 20px;
+    }
+
+    .selected-habbit-name {
+        display: none;
+    }
+}
 
 .selected-habbit-name {
     color: #fff;
-    font-size: 24px;
-}
-
-.user-section {
-    float: right;
-}
-
-.user-account-btn,
-.user-account-btn:hover,
-.user-account-btn:active,
-.user-account-btn:focus {
-    color: #fff;
-    border: none;
-    background-color: #410275 !important;
-    border-color: #410275 !important;
-    box-shadow: none !important;
-}
-
-.user-icon {
-    margin-right: 10px;
     font-size: 24px;
 }

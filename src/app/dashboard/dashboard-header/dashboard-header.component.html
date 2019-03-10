@@ -1,28 +1,32 @@
-<nav class="menu-section">
-  <div class="left-side-components">
-    <div class="logo-section">
+<nav class="navbar navbar-expand-sm habit-tracker-navbar">
+  <span class="navbar-brand habit-tracker-brand">
       <a href="#">Habit tracker <i class="fas fa-check"></i></a>
-    </div>
+  </span>
 
-    <label class="switch">
+  <label class="switch">
       <input type="checkbox" checked>
       <span class="slider round"></span>
-    </label>
-  </div>
+  </label>
 
   <span class="selected-habbit-name">All habits</span>
 
-  <div class="user-section">
-    <div ngbDropdown>
-      <button class="btn btn-outline-primary user-account-btn" ngbDropdownToggle>
-        <i class="fas fa-user user-icon"></i>
-        <span class="username">Jane Doe</span>
-      </button>
-      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-        <button class="dropdown-item"><i class="fas fa-cog"></i> Settings</button>
-        <button class="dropdown-item" routerLink="/login"><i class="fas fa-sign-out-alt"></i> Logout</button>
-      </div>
-    </div>
-  </div>
+  <button (click)="isUserSectionCollapsed = !isUserSectionCollapsed" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-content">
+      <i class="fas fa-ellipsis-v"></i>
+  </button>
 
+  <div class="collapse navbar-collapse" id="navbar-content" [ngbCollapse]="isUserSectionCollapsed">
+      <ul class="navbar-nav ml-auto">
+          <li ngbDropdown class="nav-item user-section-dropdown">
+              <a ngbDropdownToggle class="nav-link" id="navbar-dropdown">
+                  <i class="fas fa-user user-icon"></i>
+                  <span class="username">Jane Doe</span>
+              </a>
+              <div ngbDropdownMenu>
+                  <a ngbDropdownItem href="#" class="dropdown-item"><i class="fas fa-cog"></i> Settings</a>
+                  <div class="dropdown-divider"></div>
+                  <a ngbDropdownItem routerLink="/login" class="dropdown-item"><i class="fas fa-sign-out-alt"></i> Logout</a>
+              </div>
+          </li>
+      </ul>
+  </div>
 </nav>
