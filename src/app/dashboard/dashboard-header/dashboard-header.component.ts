@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { DashboardMenuDataService } from 'src/app/shared/services/dashboard-menu-data.service.ts.service';
 import { FormControl } from '@angular/forms';
 
@@ -10,19 +10,32 @@ import { FormControl } from '@angular/forms';
 export class DashboardHeaderComponent implements OnInit {
 
   public isUserSectionCollapsed = true;
-  public switch: FormControl;
+  public displaySidebarSwitch: FormControl;
+  public screenWidth: number;
+  private hideSidebarBreakpoint = 576;
 
   constructor(private dashboardMenuDataService: DashboardMenuDataService) {
-    this.switch = new FormControl(true);
+    this.displaySidebarSwitch = new FormControl(true);
   }
 
   ngOnInit() {
-    this.switch.valueChanges.subscribe(checked => {
+    this.onChanges();
+    this.getScreenSize();
+  }
+
+  @HostListener('window:resize', ['$event'])
+  getScreenSize(event?) {
+    if (window.innerWidth <= this.hideSidebarBreakpoint) {
+      this.displaySidebarSwitch.setValue(false);
+    }
+  }
+
+  onChanges() {
+    this.displaySidebarSwitch.valueChanges.subscribe(checked => {
       this.dashboardMenuDataService.setAction({
         showSidebar: checked
       });
     });
-
   }
 
 }
