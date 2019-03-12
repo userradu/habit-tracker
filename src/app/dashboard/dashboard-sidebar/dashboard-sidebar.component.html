@@ -5,4 +5,13 @@
             <span>Add habit</span>
         </button>
     </div>
+
+    <div class="habits-section">
+        <ul class="habits-list">
+            <li><i class="fas fa-list-ul"></i> All habits</li>
+            <li *ngFor="let habit of habits">
+                {{habit.name}}
+            </li>
+        </ul>
+    </div>
 </div>

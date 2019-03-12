@@ -13,6 +13,7 @@
 
 .add-habit-section {
     padding: 10px;
+    margin-bottom: 20px;
 }
 
 .add-habit-btn {
@@ -31,4 +32,25 @@
 
 .add-habit-btn i {
     margin-right: 8px;
+}
+
+.habits-list {
+    padding: 0;
+}
+
+.habits-list li {
+    color: #fff;
+    list-style: none;
+    cursor: pointer;
+    padding-top: 20px;
+    border-bottom: 1px solid #fff;
+    padding: 20px 0px 20px 10px;
+}
+
+.habits-list li:first-child {
+    border-top: 1px solid #fff;
+}
+
+.habits-list li:hover {
+    background-color: #2B014E;
 }

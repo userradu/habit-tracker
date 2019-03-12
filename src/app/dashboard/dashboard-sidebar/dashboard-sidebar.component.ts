@@ -10,6 +10,18 @@ export class DashboardSidebarComponent implements OnInit {
 
   public showSidebar: boolean = true;
 
+  public habits = [
+    {
+      name: 'Sports 3x per Week',
+    },
+    {
+      name: 'No sweets',
+    },
+    {
+      name: 'Use habit tracker daily',
+    }
+  ];
+
   constructor(private dashboardMenuDataService: DashboardMenuDataService) { }
 
   ngOnInit() {
