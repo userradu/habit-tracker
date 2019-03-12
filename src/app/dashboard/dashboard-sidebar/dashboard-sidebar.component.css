@@ -10,3 +10,25 @@
 .hide-sidebar {
     transform: translateX(-250px);
 }
+
+.add-habit-section {
+    padding: 10px;
+}
+
+.add-habit-btn {
+    width: 100%;
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #C4C4C4;
+    border-radius: 10px;
+    padding: 3px;
+    outline: none;
+}
+
+.add-habit-btn:hover {
+    background-color: #2B014E;
+}
+
+.add-habit-btn i {
+    margin-right: 8px;
+}
