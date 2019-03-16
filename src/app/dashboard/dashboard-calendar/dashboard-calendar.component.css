@@ -13,11 +13,19 @@
     }
 }
 
-.month-section {
+.header-section {
     text-align: center;
     overflow: hidden;
     padding: 10px 30px 0px;
     margin-bottom: 20px;
+}
+
+.selected-habit-section {
+    margin-bottom: 10px;
+}
+
+.selected-habit-section span {
+    font-size: 24px
 }
 
 .change-month-controls {

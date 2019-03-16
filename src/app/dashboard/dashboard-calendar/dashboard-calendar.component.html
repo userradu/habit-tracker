@@ -1,33 +1,38 @@
 <div class="wrapper" [ngClass]="{'full-width': fullWidth}">
 
-  <div class="month-section">
-    <span class="change-month-controls previous-month" (click)="getPreviousMonth()">
-      <i class="fas fa-angle-left"></i>
-    </span>
+  <div class="header-section">
+    <div class="selected-habit-section">
+      <span>Use habit tracker daily</span>
+    </div>
+    <div class="month-section">
+      <span class="change-month-controls previous-month" (click)="getPreviousMonth()">
+        <i class="fas fa-angle-left"></i>
+      </span>
 
-    <span class="selected-month">{{ selectedDate | date: 'MMMM yyyy'}}</span>
+      <span class="selected-month">{{ selectedDate | date: 'MMMM yyyy'}}</span>
 
-    <span class="change-month-controls next-month" (click)="getNextMonth()">
-      <i class="fas fa-angle-right"></i>
-    </span>
+      <span class="change-month-controls next-month" (click)="getNextMonth()">
+        <i class="fas fa-angle-right"></i>
+      </span>
+    </div>
   </div>
 
   <div class="calendar-section">
     <table>
       <tr>
-          <th>Sun</th>
-          <th>Mon</th>
-          <th>Tue</th>
-          <th>Wed</th>
-          <th>Thu</th>
-          <th>Fri</th>
-          <th>Sat</th>
+        <th>Sun</th>
+        <th>Mon</th>
+        <th>Tue</th>
+        <th>Wed</th>
+        <th>Thu</th>
+        <th>Fri</th>
+        <th>Sat</th>
       </tr>
 
       <tr *ngFor="let week of monthWeeks">
         <td *ngFor="let day of week">{{day}}</td>
       </tr>
-  </table>
+    </table>
 
   </div>
 
