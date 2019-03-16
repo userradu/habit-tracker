@@ -7,13 +7,15 @@ import { DashboardComponent } from './dashboard.component';
 import {NgbDropdownModule, NgbCollapseModule} from '@ng-bootstrap/ng-bootstrap';
 import { DashboardSidebarComponent } from './dashboard-sidebar/dashboard-sidebar.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DashboardCalendarComponent } from './dashboard-calendar/dashboard-calendar.component';
 
 
 @NgModule({
   declarations: [
     DashboardHeaderComponent,
     DashboardComponent,
-    DashboardSidebarComponent
+    DashboardSidebarComponent,
+    DashboardCalendarComponent
   ],
   imports: [
     CommonModule,

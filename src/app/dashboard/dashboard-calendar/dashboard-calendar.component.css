@@ -1,0 +1,32 @@
+.month-section {
+    text-align: center;
+    overflow: hidden;
+    padding: 10px 30px 0px;
+    margin-bottom: 20px;
+}
+
+.change-month-controls {
+    font-size: 40px;
+    cursor: pointer;
+}
+
+.previous-month {
+    float: left;
+}
+
+.next-month {
+    float: right;
+}
+
+.selected-month {
+    font-size: 24px;
+}
+
+.calendar-section table {
+    width: 100%;
+}
+
+.calendar-section table td, .calendar-section table th {
+    padding: 20px 0px;
+    text-align: center;
+}

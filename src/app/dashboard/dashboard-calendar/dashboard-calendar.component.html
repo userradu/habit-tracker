@@ -1,0 +1,34 @@
+<div class="container-fluid">
+
+  <div class="month-section">
+    <span class="change-month-controls previous-month" (click)="getPreviousMonth()">
+      <i class="fas fa-angle-left"></i>
+    </span>
+
+    <span class="selected-month">{{ selectedDate | date: 'MMMM yyyy'}}</span>
+
+    <span class="change-month-controls next-month" (click)="getNextMonth()">
+      <i class="fas fa-angle-right"></i>
+    </span>
+  </div>
+
+  <div class="calendar-section">
+    <table>
+      <tr>
+          <th>Sun</th>
+          <th>Mon</th>
+          <th>Tue</th>
+          <th>Wed</th>
+          <th>Thu</th>
+          <th>Fri</th>
+          <th>Sat</th>
+      </tr>
+
+      <tr *ngFor="let week of monthWeeks">
+        <td *ngFor="let day of week">{{day}}</td>
+      </tr>
+  </table>
+
+  </div>
+
+</div>
