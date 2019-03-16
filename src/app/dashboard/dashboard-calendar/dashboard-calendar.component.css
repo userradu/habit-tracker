@@ -1,3 +1,18 @@
+.wrapper {
+    margin-left: 250px;
+    transition: margin-left 250ms ease-in-out;
+}
+
+.wrapper.full-width {
+    margin-left: 0px;
+}
+
+@media only screen and (max-width: 576px) {
+    .wrapper {
+        margin-left: 0px;
+    }
+}
+
 .month-section {
     text-align: center;
     overflow: hidden;
@@ -29,4 +44,5 @@
 .calendar-section table td, .calendar-section table th {
     padding: 20px 0px;
     text-align: center;
+    cursor: pointer;
 }

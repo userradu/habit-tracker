@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DashboardMenuDataService } from 'src/app/shared/services/dashboard-menu-data.service.ts.service';
 
 @Component({
   selector: 'app-dashboard-calendar',
@@ -9,12 +10,19 @@ export class DashboardCalendarComponent implements OnInit {
 
   public selectedDate: Date;
   public monthWeeks: Array<any>;
+  public fullWidth: boolean = false;
 
-  constructor() { }
+  constructor(private dashboardMenuDataService: DashboardMenuDataService) { }
 
   ngOnInit() {
     this.selectedDate = new Date();
     this.createCalendar();
+
+    this.dashboardMenuDataService.dashboardMenuActions$.subscribe(message => {
+      if (message) {
+        this.fullWidth = !message.showSidebar;
+      }
+    });
   }
 
   getNumberOfWeeksInMonth(year: number, month: number) {
