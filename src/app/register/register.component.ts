@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { confirmPasswordValidation } from './confirm-password.directive';
 import { transition, trigger, style, animate, state } from '@angular/animations';
+import { RegisterService } from './register.service';
 
 @Component({
 	selector: 'app-register',
@@ -28,7 +29,10 @@ export class RegisterComponent implements OnInit {
 
 	formSubmitted: boolean = false;
 
-	constructor(private fb: FormBuilder) { }
+	constructor(
+		private fb: FormBuilder, 
+		private registerService: RegisterService
+	) { }
 
 	ngOnInit() { }
 
@@ -48,7 +52,8 @@ export class RegisterComponent implements OnInit {
 		this.formSubmitted = true;
 
 		if (this.registerForm.valid) {
-			console.log('form valid');
+			this.registerService.register(this.registerForm.value)
+				.subscribe((res) => console.log(res));
 		}
 	}
 }
