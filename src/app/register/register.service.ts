@@ -15,4 +15,9 @@ export class RegisterService {
         const url = `${this.apiUrl}/auth/signup`;
         return this.http.post<any>(url, data);
     }
+
+    checkEmailNotTaken(email: string): Observable<any> {
+        const url = `${this.apiUrl}/users/checkEmailNotTaken`;
+        return this.http.post<any>(url, { email: email });
+    }
 }

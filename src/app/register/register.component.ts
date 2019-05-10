@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { confirmPasswordValidation } from './confirm-password.directive';
+import { confirmPasswordValidation } from './custom-validation-rules/confirm-password.directive';
 import { transition, trigger, style, animate, state } from '@angular/animations';
 import { RegisterService } from './register.service';
+import { CheckEmailNotTakenValidator } from './custom-validation-rules/check-email-not-taken.directive';
 
 @Component({
 	selector: 'app-register',
@@ -22,7 +23,11 @@ export class RegisterComponent implements OnInit {
 	passwordMinLength = 6;
 
 	registerForm = this.fb.group({
-		email: ['', [Validators.required, Validators.email]],
+		email: [
+			'', 
+			[ Validators.required, Validators.email ], 
+			CheckEmailNotTakenValidator.createValidator(this.registerService)
+		],
 		password: ['', [Validators.required, Validators.minLength(this.passwordMinLength)]],
 		confirmPassword: ['', Validators.required]
 	}, { validators: confirmPasswordValidation });
