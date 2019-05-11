@@ -1,0 +1,18 @@
+<nav class="navbar navbar-expand-sm habit-tracker-navbar">
+	<span class="navbar-brand habit-tracker-brand">
+		<a href="#">Habit tracker <i class="fas fa-check"></i></a>
+	</span>
+</nav>
+
+<div class="wrapper">
+	<div class="loading-message" *ngIf="loading">
+		<span class="spinner-border spinner-border-md text-primary"></span>
+		<span class="message">
+			The account is being verified...
+		</span>
+	</div>
+
+	<div class="error-message" *ngIf="errorMessage">
+		<span>{{errorMessage}}</span>
+	</div>
+</div>

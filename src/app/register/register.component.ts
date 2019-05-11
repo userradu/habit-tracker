@@ -59,9 +59,10 @@ export class RegisterComponent implements OnInit {
 	}
 
 	onSubmit() {
+
 		this.formSubmitted = true;
 
-		if (this.registerForm.valid && !this.formSubmitted) {
+		if (this.registerForm.valid) {
 			this.loading = true;
 
 			this.registerService.register(this.registerForm.value)

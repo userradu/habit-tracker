@@ -20,4 +20,9 @@ export class RegisterService {
         const url = `${this.apiUrl}/users/checkEmailNotTaken`;
         return this.http.post<any>(url, { email: email });
     }
+
+    confirmAccount(verificationToken: string): Observable<any> {
+        const url = `${this.apiUrl}/auth/signup/verify-account`;
+        return this.http.post<any>(url, { verificationToken: verificationToken });
+    }
 }

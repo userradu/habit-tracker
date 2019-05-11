@@ -1,0 +1,32 @@
+.habit-tracker-navbar {
+    background-color: #410275;
+}
+
+.habit-tracker-brand * {
+    color: #fff;
+}
+
+.habit-tracker-brand a {
+    text-decoration: none;
+}
+
+.habit-tracker-brand a:hover {
+    color: #fff;
+}
+
+.wrapper {
+    padding-top: 100px;
+    position: relative;
+}
+
+.loading-message {
+    text-align: center;
+}
+
+.error-message {
+    border: 1px solid red;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    padding: 10px;
+}
