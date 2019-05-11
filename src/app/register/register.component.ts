@@ -4,6 +4,8 @@ import { confirmPasswordValidation } from './custom-validation-rules/confirm-pas
 import { transition, trigger, style, animate, state } from '@angular/animations';
 import { RegisterService } from './register.service';
 import { CheckEmailNotTakenValidator } from './custom-validation-rules/check-email-not-taken.directive';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-register',
@@ -24,8 +26,8 @@ export class RegisterComponent implements OnInit {
 
 	registerForm = this.fb.group({
 		email: [
-			'', 
-			[ Validators.required, Validators.email ], 
+			'',
+			[Validators.required, Validators.email],
 			CheckEmailNotTakenValidator.createValidator(this.registerService)
 		],
 		password: ['', [Validators.required, Validators.minLength(this.passwordMinLength)]],
@@ -35,8 +37,10 @@ export class RegisterComponent implements OnInit {
 	formSubmitted: boolean = false;
 
 	constructor(
-		private fb: FormBuilder, 
-		private registerService: RegisterService
+		private fb: FormBuilder,
+		private registerService: RegisterService,
+		private toastr: ToastrService,
+		private router: Router
 	) { }
 
 	ngOnInit() { }
@@ -58,7 +62,14 @@ export class RegisterComponent implements OnInit {
 
 		if (this.registerForm.valid) {
 			this.registerService.register(this.registerForm.value)
-				.subscribe((res) => console.log(res));
+				.subscribe(() => {
+					const message = `A confirmation email was sent to ${this.email.value}`
+					this.toastr.success('', message, {
+						closeButton: true,
+						timeOut: 0
+					});
+					this.router.navigate(['/login']);
+				});
 		}
 	}
 }
