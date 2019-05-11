@@ -35,6 +35,7 @@ export class RegisterComponent implements OnInit {
 	}, { validators: confirmPasswordValidation });
 
 	formSubmitted: boolean = false;
+	loading: boolean = false;
 
 	constructor(
 		private fb: FormBuilder,
@@ -60,9 +61,12 @@ export class RegisterComponent implements OnInit {
 	onSubmit() {
 		this.formSubmitted = true;
 
-		if (this.registerForm.valid) {
+		if (this.registerForm.valid && !this.formSubmitted) {
+			this.loading = true;
+
 			this.registerService.register(this.registerForm.value)
 				.subscribe(() => {
+					this.loading = false;
 					const message = `A confirmation email was sent to ${this.email.value}`
 					this.toastr.success('', message, {
 						closeButton: true,

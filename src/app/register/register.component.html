@@ -69,7 +69,10 @@
 
 				</div>
 
-				<button type="submit">Create Account</button>
+				<button type="submit">
+					<span *ngIf="loading" class="spinner-border spinner-border-sm"></span>
+					Create Account
+				</button>
 
 				<div class="link-section">
 					<span>Have an account already? </span><a routerLink="/login">Sign in</a>
