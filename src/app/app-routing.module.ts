@@ -11,6 +11,10 @@ const routes: Routes = [
 		loadChildren: './confirm-account/confirm-account.module#ConfirmAccountModule'
 	},
 	{
+		path: 'forgot-password',
+		loadChildren: './forgot-password/forgot-password.module#ForgotPasswordModule'
+	},
+	{
 		path: 'login',
 		loadChildren: './login/login.module#LoginModule'
 	},

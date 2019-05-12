@@ -6,6 +6,7 @@ import { RegisterService } from './register.service';
 import { CheckEmailNotTakenValidator } from './custom-validation-rules/check-email-not-taken.directive';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+import { CheckEmailService } from '../shared/services/check-email.service';
 
 @Component({
 	selector: 'app-register',
@@ -28,7 +29,7 @@ export class RegisterComponent implements OnInit {
 		email: [
 			'',
 			[Validators.required, Validators.email],
-			CheckEmailNotTakenValidator.createValidator(this.registerService)
+			CheckEmailNotTakenValidator.createValidator(this.checkEmailService)
 		],
 		password: ['', [Validators.required, Validators.minLength(this.passwordMinLength)]],
 		confirmPassword: ['', Validators.required]
@@ -40,6 +41,7 @@ export class RegisterComponent implements OnInit {
 	constructor(
 		private fb: FormBuilder,
 		private registerService: RegisterService,
+		private checkEmailService: CheckEmailService,
 		private toastr: ToastrService,
 		private router: Router
 	) { }
