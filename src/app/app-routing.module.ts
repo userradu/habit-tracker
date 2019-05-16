@@ -15,6 +15,10 @@ const routes: Routes = [
 		loadChildren: './forgot-password/forgot-password.module#ForgotPasswordModule'
 	},
 	{
+		path: 'reset-password',
+		loadChildren: './reset-password/reset-password.module#ResetPasswordModule'
+	},
+	{
 		path: 'login',
 		loadChildren: './login/login.module#LoginModule'
 	},
