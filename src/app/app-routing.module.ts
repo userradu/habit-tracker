@@ -4,23 +4,23 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
 	{
 		path: 'register',
-		loadChildren: './register/register.module#RegisterModule'
+		loadChildren: './auth/register/register.module#RegisterModule'
 	},
 	{
 		path: 'confirm-account',
-		loadChildren: './confirm-account/confirm-account.module#ConfirmAccountModule'
+		loadChildren: './auth/confirm-account/confirm-account.module#ConfirmAccountModule'
 	},
 	{
 		path: 'forgot-password',
-		loadChildren: './forgot-password/forgot-password.module#ForgotPasswordModule'
+		loadChildren: './auth/forgot-password/forgot-password.module#ForgotPasswordModule'
 	},
 	{
 		path: 'reset-password',
-		loadChildren: './reset-password/reset-password.module#ResetPasswordModule'
+		loadChildren: './auth/reset-password/reset-password.module#ResetPasswordModule'
 	},
 	{
 		path: 'login',
-		loadChildren: './login/login.module#LoginModule'
+		loadChildren: './auth/login/login.module#LoginModule'
 	},
 	{
 		path: 'dashboard',

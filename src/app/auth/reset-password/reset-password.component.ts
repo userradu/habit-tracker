@@ -4,12 +4,12 @@ import { Validators, FormBuilder } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ResetPasswordService } from './reset-password.service';
-import { confirmPasswordValidation } from '../shared/directives/custom-validation-rules/confirm-password.directive';
+import { confirmPasswordValidation } from 'src/app/shared/directives/custom-validation-rules/confirm-password.directive';
 
 @Component({
 	selector: 'app-reset-password',
 	templateUrl: './reset-password.component.html',
-	styleUrls: ['../shared/css/auth.css'],
+	styleUrls: ['../../shared/css/auth.css'],
 	animations: [
 		trigger('fadeInOut', [
 			state('void', style({

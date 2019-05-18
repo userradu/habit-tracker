@@ -5,13 +5,13 @@ import { RegisterService } from './register.service';
 import { CheckEmailNotTakenValidator } from './custom-validation-rules/check-email-not-taken.directive';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
-import { CheckEmailService } from '../shared/services/check-email.service';
-import { confirmPasswordValidation } from '../shared/directives/custom-validation-rules/confirm-password.directive';
+import { confirmPasswordValidation } from 'src/app/shared/directives/custom-validation-rules/confirm-password.directive';
+import { CheckEmailService } from 'src/app/shared/services/check-email.service';
 
 @Component({
 	selector: 'app-register',
 	templateUrl: './register.component.html',
-	styleUrls: ['../shared/css/auth.css'],
+	styleUrls: ['../../shared/css/auth.css'],
 	animations: [
 		trigger('fadeInOut', [
 			state('void', style({

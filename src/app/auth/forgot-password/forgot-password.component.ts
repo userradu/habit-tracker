@@ -4,13 +4,13 @@ import { Validators, FormBuilder } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { ForgotPasswordService } from './forgot-password.service';
-import { CheckEmailService } from '../shared/services/check-email.service';
 import { CheckEmailExistsValidator } from './custom-validation-rules/check-email-exists.directive';
+import { CheckEmailService } from 'src/app/shared/services/check-email.service';
 
 @Component({
 	selector: 'app-forgot-password',
 	templateUrl: './forgot-password.component.html',
-	styleUrls: ['../shared/css/auth.css'],
+	styleUrls: ['../../shared/css/auth.css'],
 	animations: [
 		trigger('fadeInOut', [
 			state('void', style({
