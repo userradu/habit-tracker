@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ResetPasswordService } from './reset-password.service';
 import { confirmPasswordValidation } from 'src/app/shared/directives/custom-validation-rules/confirm-password.directive';
+import { ParseServerErrorsService } from 'src/app/shared/services/parse-server-errors.service';
 
 @Component({
 	selector: 'app-reset-password',
@@ -38,7 +39,8 @@ export class ResetPasswordComponent implements OnInit {
 		private toastr: ToastrService,
 		private router: Router,
 		private route: ActivatedRoute,
-		private resetPasswordService: ResetPasswordService
+		private resetPasswordService: ResetPasswordService,
+		private parseServerErrorsService: ParseServerErrorsService
 	) { }
 
 	ngOnInit() {
@@ -70,8 +72,9 @@ export class ResetPasswordComponent implements OnInit {
 						});
 						this.router.navigate(['/login']);
 					},
-					(error) => {
+					(response) => {
 						this.loading = false;
+						let error = this.parseServerErrorsService.parseError(response.error);
 						this.toastr.error('', error, {
 							closeButton: true,
 							timeOut: 0
