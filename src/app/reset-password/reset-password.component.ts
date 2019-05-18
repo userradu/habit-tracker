@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Validators, FormBuilder } from '@angular/forms';
-import { confirmPasswordValidation } from '../register/custom-validation-rules/confirm-password.directive';
 import { ToastrService } from 'ngx-toastr';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ResetPasswordService } from './reset-password.service';
+import { confirmPasswordValidation } from '../shared/directives/custom-validation-rules/confirm-password.directive';
 
 @Component({
 	selector: 'app-reset-password',

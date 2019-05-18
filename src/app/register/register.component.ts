@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { confirmPasswordValidation } from './custom-validation-rules/confirm-password.directive';
 import { transition, trigger, style, animate, state } from '@angular/animations';
 import { RegisterService } from './register.service';
 import { CheckEmailNotTakenValidator } from './custom-validation-rules/check-email-not-taken.directive';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { CheckEmailService } from '../shared/services/check-email.service';
+import { confirmPasswordValidation } from '../shared/directives/custom-validation-rules/confirm-password.directive';
 
 @Component({
 	selector: 'app-register',
