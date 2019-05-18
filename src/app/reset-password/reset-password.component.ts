@@ -9,7 +9,7 @@ import { ResetPasswordService } from './reset-password.service';
 @Component({
 	selector: 'app-reset-password',
 	templateUrl: './reset-password.component.html',
-	styleUrls: ['../shared/css/access.css', './reset-password.component.css'],
+	styleUrls: ['../shared/css/auth.css'],
 	animations: [
 		trigger('fadeInOut', [
 			state('void', style({

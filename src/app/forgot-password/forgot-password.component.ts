@@ -10,7 +10,7 @@ import { CheckEmailExistsValidator } from './custom-validation-rules/check-email
 @Component({
 	selector: 'app-forgot-password',
 	templateUrl: './forgot-password.component.html',
-	styleUrls: ['../shared/css/access.css', './forgot-password.component.css'],
+	styleUrls: ['../shared/css/auth.css'],
 	animations: [
 		trigger('fadeInOut', [
 			state('void', style({

@@ -11,7 +11,7 @@ import { CheckEmailService } from '../shared/services/check-email.service';
 @Component({
 	selector: 'app-register',
 	templateUrl: './register.component.html',
-	styleUrls: ['../shared/css/access.css', './register.component.css'],
+	styleUrls: ['../shared/css/auth.css'],
 	animations: [
 		trigger('fadeInOut', [
 			state('void', style({
