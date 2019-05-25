@@ -41,11 +41,7 @@ export class ForgotPasswordComponent implements OnInit {
 		private forgotPasswordService: ForgotPasswordService,
 		private checkEmailService: CheckEmailService,
 		private authService: AuthService
-	) {
-		if (this.authService.isLoggedIn()) {
-			this.router.navigate(['/dashboard'])
-		}
-	 }
+	) {}
 
 	ngOnInit() {
 	}

@@ -43,11 +43,7 @@ export class ResetPasswordComponent implements OnInit {
 		private resetPasswordService: ResetPasswordService,
 		private parseServerErrorsService: ParseServerErrorsService,
 		private authService: AuthService
-	) {
-		if (this.authService.isLoggedIn()) {
-			this.router.navigate(['/dashboard'])
-		}
-	 }
+	) { }
 
 	ngOnInit() {
 	}

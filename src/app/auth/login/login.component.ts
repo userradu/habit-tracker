@@ -35,11 +35,7 @@ export class LoginComponent implements OnInit {
 		private authService: AuthService,
 		private toastr: ToastrService,
 		private parseServerErrorsService: ParseServerErrorsService
-	) { 
-		if (this.authService.isLoggedIn()) {
-			this.router.navigate(['/dashboard'])
-		}
-	}
+	) { }
 
 	ngOnInit() {
 	}

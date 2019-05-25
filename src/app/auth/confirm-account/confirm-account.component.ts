@@ -20,11 +20,7 @@ export class ConfirmAccountComponent implements OnInit {
 		private toastr: ToastrService,
 		private router: Router,
 		private authService: AuthService
-	) {
-		if (this.authService.isLoggedIn()) {
-			this.router.navigate(['/dashboard'])
-		}
-	 }
+	) { }
 
 	ngOnInit() {
 		
