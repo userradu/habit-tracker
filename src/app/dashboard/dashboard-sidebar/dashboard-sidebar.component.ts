@@ -15,17 +15,7 @@ export class DashboardSidebarComponent implements OnInit {
 
 	public showSidebar: boolean = true;
 
-	public habits = [
-		{
-			name: 'Sports 3x per Week',
-		},
-		{
-			name: 'No sweets',
-		},
-		{
-			name: 'Use habit tracker daily',
-		}
-	];
+	public habits: any[];
 
 	createHabitModal: NgbModalRef
 
@@ -50,6 +40,13 @@ export class DashboardSidebarComponent implements OnInit {
 				this.showSidebar = message.showSidebar;
 			}
 		});
+
+		this.getAllHabits();
+	}
+
+	getAllHabits() {
+		this.habitService.getAllHabits()
+			.subscribe(result => this.habits = result.habits);
 	}
 
 	get name() {
@@ -73,6 +70,7 @@ export class DashboardSidebarComponent implements OnInit {
 				.subscribe(
 					() => {
 						this.createHabitModal.close();
+						this.getAllHabits();
 						const message = 'The habit was created successfully'
 						this.toastr.success('', message, {
 							closeButton: true,
@@ -89,5 +87,4 @@ export class DashboardSidebarComponent implements OnInit {
 				);
 		}
 	}
-
 }

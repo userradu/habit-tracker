@@ -15,4 +15,8 @@ export class HabitService {
     createHabit(data: any): Observable<any> {
         return this.http.post(`${this.apiUrl}/habits`, data);
     }
+
+    getAllHabits(): Observable<any> {
+        return this.http.get(`${this.apiUrl}/habits`);
+    }
 }
