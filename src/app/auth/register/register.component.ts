@@ -7,7 +7,6 @@ import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { confirmPasswordValidation } from 'src/app/shared/directives/custom-validation-rules/confirm-password.directive';
 import { CheckEmailService } from 'src/app/shared/services/check-email.service';
-import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
 	selector: 'app-register',
@@ -44,7 +43,6 @@ export class RegisterComponent implements OnInit {
 		private registerService: RegisterService,
 		private checkEmailService: CheckEmailService,
 		private toastr: ToastrService,
-		private authService: AuthService,
 		private router: Router
 	) { }
 

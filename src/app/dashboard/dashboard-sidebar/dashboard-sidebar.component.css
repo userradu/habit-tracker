@@ -54,3 +54,16 @@
 .habits-list li:hover {
     background-color: #2B014E;
 }
+
+.add-habit-modal .habit-name {
+    width: 100%;
+    padding: 4px;
+}
+
+.add-habit-modal .habit-name.invalid-input {
+    border: 1px solid red;
+}
+
+.add-habit-modal .error-message {
+    margin-top: 8px;
+}
