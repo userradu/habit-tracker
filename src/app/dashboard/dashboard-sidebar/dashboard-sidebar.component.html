@@ -1,6 +1,6 @@
 <div class="sidebar" [ngClass]="{'hide-sidebar': !showSidebar}">
     <div class="add-habit-section">
-        <button type="button" class="add-habit-btn" (click)="open(content)">
+        <button type="button" class="add-habit-btn" (click)="openAddHabitModal(addHabitModalContent)">
             <i class="fas fa-plus"></i>
             <span>Add habit</span>
         </button>
@@ -8,14 +8,12 @@
 
     <div class="habits-section">
         <ul class="habits-list">
-            <li *ngFor="let habit of habits"
-                class="habit-item"
+            <li *ngFor="let habit of habits" class="habit-item"
                 (mouseenter)="contextMenuIcon.style.display = 'inline-block'"
                 (mouseleave)="contextMenuIcon.style.display = 'none'">
                 {{habit.name}}
 
-                <i #contextMenuIcon 
-                    class="fas fa-ellipsis-v context-menu-icon"
+                <i #contextMenuIcon class="fas fa-ellipsis-v context-menu-icon"
                     (click)="displayContextMenu($event); selectedHabit = habit">
                 </i>
             </li>
@@ -28,13 +26,13 @@
         <li (click)="editHabit()">
             <i class="fas fa-edit"></i> Edit
         </li>
-        <li (click)="deleteHabit()">
+        <li (click)="openDeleteHabitModal(confirmDeleteHabitModalContent)">
             <i class="fas fa-trash"></i> Delete
         </li>
     </ul>
 </div>
 
-<ng-template #content let-modal>
+<ng-template #addHabitModalContent let-modal>
     <div class="add-habit-modal">
         <div class="modal-header">
             <h4 class="modal-title" id="modal-basic-title">Add habit</h4>
@@ -44,11 +42,7 @@
         </div>
         <form [formGroup]="addHabitForm" (ngSubmit)="onCreateHabit()">
             <div class="modal-body">
-                <input type="text" 
-                    ngbAutofocus
-                    formControlName="name" 
-                    placeholder="Name" 
-                    class="habit-name"
+                <input type="text" ngbAutofocus formControlName="name" placeholder="Name" class="habit-name"
                     [ngClass]="{'invalid-input': formSubmitted && name.invalid }">
 
                 <div *ngIf="formSubmitted && name.invalid" class="error-message">
@@ -62,5 +56,23 @@
                 <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Cancel</button>
             </div>
         </form>
+    </div>
+</ng-template>
+
+<ng-template #confirmDeleteHabitModalContent let-modal>
+    <div class="confirm-delete-habit-modal">
+        <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">Delete habit</h4>
+            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            Are you sure you want to delete the habit {{ selectedHabit.name }}?
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-outline-dark" (click)="deleteHabit()">Delete</button>
+            <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Cancel</button>
+        </div>
     </div>
 </ng-template>

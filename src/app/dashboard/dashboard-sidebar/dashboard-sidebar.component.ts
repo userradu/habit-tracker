@@ -19,7 +19,8 @@ export class DashboardSidebarComponent implements OnInit {
 	showSidebar: boolean = true;
 	habits: any[];
 	selectedHabit: any;
-	createHabitModal: NgbModalRef
+	createHabitModal: NgbModalRef;
+	deleteHabitModal: NgbModalRef;
 
 	addHabitForm = this.fb.group({
 		name: ['', Validators.required],
@@ -33,6 +34,7 @@ export class DashboardSidebarComponent implements OnInit {
 		let contextMenuClicked = event.target.closest(".context-menu");
 		if (!contextMenuIconClicked && !contextMenuClicked) {
 			this.contextMenu.nativeElement.style.display = "none";
+			this.selectedHabit = null;
 		}
 	}
 
@@ -64,7 +66,7 @@ export class DashboardSidebarComponent implements OnInit {
 		return this.addHabitForm.get('name');
 	}
 
-	open(content: any) {
+	openAddHabitModal(content: any) {
 		this.resetAddHabitForm();
 		this.createHabitModal = this.modalService.open(content);
 	}
@@ -109,7 +111,21 @@ export class DashboardSidebarComponent implements OnInit {
 
 	}
 
+	openDeleteHabitModal(content: any) {
+		this.deleteHabitModal = this.modalService.open(content);
+		this.contextMenu.nativeElement.style.display = 'none';
+	}
+
 	deleteHabit() {
-		
+		this.habitService.deleteHabit(this.selectedHabit._id)
+			.subscribe(() => {
+				this.getAllHabits();
+				this.deleteHabitModal.close();
+				const message = 'The habit was deleted'
+				this.toastr.success('', message, {
+					closeButton: true,
+					timeOut: 0
+				});
+			});
 	}
 }

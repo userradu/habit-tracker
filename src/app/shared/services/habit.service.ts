@@ -19,4 +19,8 @@ export class HabitService {
     getAllHabits(): Observable<any> {
         return this.http.get(`${this.apiUrl}/habits`);
     }
+
+    deleteHabit(id: any): Observable<any> {
+        return this.http.delete(`${this.apiUrl}/habits/${id}`);
+    }
 }
