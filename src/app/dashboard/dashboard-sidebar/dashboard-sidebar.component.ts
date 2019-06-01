@@ -21,8 +21,13 @@ export class DashboardSidebarComponent implements OnInit {
 	selectedHabit: any;
 	createHabitModal: NgbModalRef;
 	deleteHabitModal: NgbModalRef;
+	editHabitModal: NgbModalRef;
 
 	addHabitForm = this.fb.group({
+		name: ['', Validators.required],
+	});
+
+	editHabitForm = this.fb.group({
 		name: ['', Validators.required],
 	});
 
@@ -34,7 +39,6 @@ export class DashboardSidebarComponent implements OnInit {
 		let contextMenuClicked = event.target.closest(".context-menu");
 		if (!contextMenuIconClicked && !contextMenuClicked) {
 			this.contextMenu.nativeElement.style.display = "none";
-			this.selectedHabit = null;
 		}
 	}
 
@@ -62,10 +66,6 @@ export class DashboardSidebarComponent implements OnInit {
 			.subscribe(result => this.habits = result.habits);
 	}
 
-	get name() {
-		return this.addHabitForm.get('name');
-	}
-
 	openAddHabitModal(content: any) {
 		this.resetAddHabitForm();
 		this.createHabitModal = this.modalService.open(content);
@@ -74,6 +74,11 @@ export class DashboardSidebarComponent implements OnInit {
 	resetAddHabitForm() {
 		this.formSubmitted = false;
 		this.addHabitForm.reset();
+	}
+
+	resetEditHabitForm() {
+		this.formSubmitted = false;
+		this.editHabitForm.reset();
 	}
 
 	onCreateHabit() {
@@ -107,10 +112,6 @@ export class DashboardSidebarComponent implements OnInit {
 		this.contextMenu.nativeElement.style.display = 'block';
 	}
 
-	editHabit() {
-
-	}
-
 	openDeleteHabitModal(content: any) {
 		this.deleteHabitModal = this.modalService.open(content);
 		this.contextMenu.nativeElement.style.display = 'none';
@@ -127,5 +128,36 @@ export class DashboardSidebarComponent implements OnInit {
 					timeOut: 0
 				});
 			});
+	}
+
+	openEditHabitModal(content: any) {
+		this.editHabitForm.controls.name.setValue(this.selectedHabit.name);
+		this.editHabitModal = this.modalService.open(content);
+		this.contextMenu.nativeElement.style.display = 'none';
+	}
+
+	onEditHabit() {
+		this.formSubmitted = true;
+		if (this.editHabitForm.valid) {
+			this.habitService.editHabit(this.selectedHabit._id, this.editHabitForm.value)
+				.subscribe(
+					() => {
+						this.editHabitModal.close();
+						this.getAllHabits();
+						const message = 'The habit was modified successfully'
+						this.toastr.success('', message, {
+							closeButton: true,
+							timeOut: 0
+						});
+					},
+					(response) => {
+						let error = this.parseServerErrorService.parseError(response.error);
+						this.toastr.error('', error, {
+							closeButton: true,
+							timeOut: 0
+						});
+					}
+				);
+		}
 	}
 }

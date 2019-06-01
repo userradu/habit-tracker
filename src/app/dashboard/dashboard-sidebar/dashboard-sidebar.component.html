@@ -1,6 +1,6 @@
 <div class="sidebar" [ngClass]="{'hide-sidebar': !showSidebar}">
-    <div class="add-habit-section">
-        <button type="button" class="add-habit-btn" (click)="openAddHabitModal(addHabitModalContent)">
+    <div class="edit-habit-section">
+        <button type="button" class="edit-habit-btn" (click)="openAddHabitModal(addHabitModalContent)">
             <i class="fas fa-plus"></i>
             <span>Add habit</span>
         </button>
@@ -23,7 +23,7 @@
 
 <div #contextMenu class="context-menu">
     <ul>
-        <li (click)="editHabit()">
+        <li (click)="openEditHabitModal(editHabitModalContent)">
             <i class="fas fa-edit"></i> Edit
         </li>
         <li (click)="openDeleteHabitModal(confirmDeleteHabitModalContent)">
@@ -33,7 +33,7 @@
 </div>
 
 <ng-template #addHabitModalContent let-modal>
-    <div class="add-habit-modal">
+    <div class="edit-habit-modal">
         <div class="modal-header">
             <h4 class="modal-title" id="modal-basic-title">Add habit</h4>
             <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
@@ -43,10 +43,37 @@
         <form [formGroup]="addHabitForm" (ngSubmit)="onCreateHabit()">
             <div class="modal-body">
                 <input type="text" ngbAutofocus formControlName="name" placeholder="Name" class="habit-name"
-                    [ngClass]="{'invalid-input': formSubmitted && name.invalid }">
+                    [ngClass]="{'invalid-input': formSubmitted && addHabitForm.get('name').invalid }">
 
-                <div *ngIf="formSubmitted && name.invalid" class="error-message">
-                    <div *ngIf="name.errors.required">
+                <div *ngIf="formSubmitted && addHabitForm.get('name').invalid" class="error-message">
+                    <div *ngIf="addHabitForm.get('name').errors.required">
+                        The name is required
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-outline-dark">Save</button>
+                <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Cancel</button>
+            </div>
+        </form>
+    </div>
+</ng-template>
+
+<ng-template #editHabitModalContent let-modal>
+    <div class="edit-habit-modal">
+        <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">Edit habit</h4>
+            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <form [formGroup]="editHabitForm" (ngSubmit)="onEditHabit()">
+            <div class="modal-body">
+                <input type="text" ngbAutofocus formControlName="name" placeholder="Name" class="habit-name"
+                    [ngClass]="{'invalid-input': formSubmitted && editHabitForm.get('name').invalid }">
+
+                <div *ngIf="formSubmitted && editHabitForm.get('name').invalid" class="error-message">
+                    <div *ngIf="editHabitForm.get('name').errors.required">
                         The name is required
                     </div>
                 </div>

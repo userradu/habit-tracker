@@ -23,4 +23,8 @@ export class HabitService {
     deleteHabit(id: any): Observable<any> {
         return this.http.delete(`${this.apiUrl}/habits/${id}`);
     }
+
+    editHabit(id: any, data: any): Observable<any> {
+        return this.http.put(`${this.apiUrl}/habits/${id}`, data);
+    }
 }

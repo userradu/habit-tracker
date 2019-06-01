@@ -11,12 +11,12 @@
     transform: translateX(-250px);
 }
 
-.add-habit-section {
+.edit-habit-section {
     padding: 10px;
     margin-bottom: 20px;
 }
 
-.add-habit-btn {
+.edit-habit-btn {
     width: 100%;
     background-color: transparent;
     color: #fff;
@@ -26,11 +26,11 @@
     outline: none;
 }
 
-.add-habit-btn:hover {
+.edit-habit-btn:hover {
     background-color: #2B014E;
 }
 
-.add-habit-btn i {
+.edit-habit-btn i {
     margin-right: 8px;
 }
 
@@ -55,16 +55,16 @@
     background-color: #2B014E;
 }
 
-.add-habit-modal .habit-name {
+.edit-habit-modal .habit-name {
     width: 100%;
     padding: 4px;
 }
 
-.add-habit-modal .habit-name.invalid-input {
+.edit-habit-modal .habit-name.invalid-input {
     border: 1px solid red;
 }
 
-.add-habit-modal .error-message {
+.edit-habit-modal .error-message {
     margin-top: 8px;
 }
 
