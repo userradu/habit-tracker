@@ -16,7 +16,7 @@
 
                 <i #contextMenuIcon 
                     class="fas fa-ellipsis-v context-menu-icon"
-                    (click)="displayContextMenu($event)">
+                    (click)="displayContextMenu($event); selectedHabit = habit">
                 </i>
             </li>
         </ul>
@@ -25,8 +25,12 @@
 
 <div #contextMenu class="context-menu">
     <ul>
-        <li>Edit</li>
-        <li>Delete</li>
+        <li (click)="editHabit()">
+            <i class="fas fa-edit"></i> Edit
+        </li>
+        <li (click)="deleteHabit()">
+            <i class="fas fa-trash"></i> Delete
+        </li>
     </ul>
 </div>
 

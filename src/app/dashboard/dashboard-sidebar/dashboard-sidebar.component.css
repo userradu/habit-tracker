@@ -80,4 +80,26 @@
     display: none;
     position: absolute;
     border: 1px solid #fff;
+    background-color: #fff;
+    border: 1px solid #d0cdcd;
+    width: 108px;
+    -webkit-box-shadow: 7px 7px 5px -6px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 7px 7px 5px -6px rgba(0, 0, 0, 0.75);
+    box-shadow: 7px 7px 5px -6px rgba(0, 0, 0, 0.75);
+}
+
+.context-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.context-menu li {
+    padding: 13px;
+    border-bottom: 1px solid #d0cdcd;
+    cursor: pointer;
+}
+
+.context-menu li:hover {
+    background-color: #f1efef;
 }

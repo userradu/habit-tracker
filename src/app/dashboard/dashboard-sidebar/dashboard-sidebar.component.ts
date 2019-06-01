@@ -16,8 +16,9 @@ export class DashboardSidebarComponent implements OnInit {
 	@ViewChild('contextMenu')
 	contextMenu: ElementRef;
 
-	public showSidebar: boolean = true;
-	public habits: any[];
+	showSidebar: boolean = true;
+	habits: any[];
+	selectedHabit: any;
 	createHabitModal: NgbModalRef
 
 	addHabitForm = this.fb.group({
@@ -102,5 +103,13 @@ export class DashboardSidebarComponent implements OnInit {
 		this.contextMenu.nativeElement.style.left = `${event.pageX}px`;
 		this.contextMenu.nativeElement.style.top = `${event.pageY}px`;
 		this.contextMenu.nativeElement.style.display = 'block';
+	}
+
+	editHabit() {
+
+	}
+
+	deleteHabit() {
+		
 	}
 }
