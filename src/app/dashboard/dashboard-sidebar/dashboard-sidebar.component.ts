@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, HostListener } from '@angular/core';
 import { DashboardMenuDataService } from 'src/app/shared/services/dashboard-menu-data.service.ts.service';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, Validators } from '@angular/forms';
@@ -13,10 +13,11 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class DashboardSidebarComponent implements OnInit {
 
+	@ViewChild('contextMenu')
+	contextMenu: ElementRef;
+
 	public showSidebar: boolean = true;
-
 	public habits: any[];
-
 	createHabitModal: NgbModalRef
 
 	addHabitForm = this.fb.group({
@@ -24,6 +25,15 @@ export class DashboardSidebarComponent implements OnInit {
 	});
 
 	formSubmitted: boolean = false;
+
+	@HostListener('document:click', ['$event'])
+	documentClick(event) {
+		let contextMenuIconClicked = event.target.classList.contains('context-menu-icon');
+		let contextMenuClicked = event.target.closest(".context-menu");
+		if (!contextMenuIconClicked && !contextMenuClicked) {
+			this.contextMenu.nativeElement.style.display = "none";
+		}
+	}
 
 	constructor(
 		private dashboardMenuDataService: DashboardMenuDataService,
@@ -86,5 +96,11 @@ export class DashboardSidebarComponent implements OnInit {
 					}
 				);
 		}
+	}
+
+	displayContextMenu(event: MouseEvent) {
+		this.contextMenu.nativeElement.style.left = `${event.pageX}px`;
+		this.contextMenu.nativeElement.style.top = `${event.pageY}px`;
+		this.contextMenu.nativeElement.style.display = 'block';
 	}
 }

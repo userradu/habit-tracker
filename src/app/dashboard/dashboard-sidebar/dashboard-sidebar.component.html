@@ -8,11 +8,26 @@
 
     <div class="habits-section">
         <ul class="habits-list">
-            <li *ngFor="let habit of habits">
+            <li *ngFor="let habit of habits"
+                class="habit-item"
+                (mouseenter)="contextMenuIcon.style.display = 'inline-block'"
+                (mouseleave)="contextMenuIcon.style.display = 'none'">
                 {{habit.name}}
+
+                <i #contextMenuIcon 
+                    class="fas fa-ellipsis-v context-menu-icon"
+                    (click)="displayContextMenu($event)">
+                </i>
             </li>
         </ul>
     </div>
+</div>
+
+<div #contextMenu class="context-menu">
+    <ul>
+        <li>Edit</li>
+        <li>Delete</li>
+    </ul>
 </div>
 
 <ng-template #content let-modal>
