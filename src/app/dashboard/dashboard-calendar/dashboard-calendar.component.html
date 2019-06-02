@@ -30,7 +30,7 @@
       </tr>
 
       <tr *ngFor="let week of monthWeeks">
-        <td *ngFor="let day of week">{{day}}</td>
+        <td *ngFor="let day of week" (click)="toggleHabitStatus(day)">{{ day?.date.getDate() }} {{ day?.completed }}</td>
       </tr>
     </table>
 

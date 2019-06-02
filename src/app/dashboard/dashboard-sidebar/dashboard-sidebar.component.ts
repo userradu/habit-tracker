@@ -5,6 +5,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { HabitService } from 'src/app/shared/services/habit.service';
 import { ParseServerErrorsService } from 'src/app/shared/services/parse-server-errors.service';
 import { ToastrService } from 'ngx-toastr';
+import { DashboardSidebarMenuDataService } from 'src/app/shared/services/dashboard-sidebar-menu.data.service';
 
 @Component({
 	selector: 'app-dashboard-sidebar',
@@ -40,6 +41,7 @@ export class DashboardSidebarComponent implements OnInit {
 
 	constructor(
 		private dashboardMenuDataService: DashboardMenuDataService,
+		private dashboardSidebarMenuDataService: DashboardSidebarMenuDataService,
 		private modalService: NgbModal,
 		private fb: FormBuilder,
 		private habitService: HabitService,
@@ -59,7 +61,21 @@ export class DashboardSidebarComponent implements OnInit {
 
 	getAllHabits() {
 		this.habitService.getAllHabits()
-			.subscribe(result => this.habits = result.habits);
+			.subscribe(result => { 
+				this.habits = result.habits;
+				
+				if (this.habits.length) {
+					this.selectHabit(this.habits[0]);
+				}
+			});
+	}
+
+	selectHabit(habit) {
+		this.selectedHabit = habit;
+		this.dashboardSidebarMenuDataService.setAction({
+			name: 'habit selected',
+			habit: this.selectedHabit
+		});
 	}
 
 	openAddHabitModal(content: any) {

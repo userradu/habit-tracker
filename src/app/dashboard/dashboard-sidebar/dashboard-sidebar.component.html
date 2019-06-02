@@ -10,11 +10,13 @@
         <ul class="habits-list">
             <li *ngFor="let habit of habits" class="habit-item"
                 (mouseenter)="contextMenuIcon.style.display = 'inline-block'"
-                (mouseleave)="contextMenuIcon.style.display = 'none'">
+                (mouseleave)="contextMenuIcon.style.display = 'none'"
+                (click)="selectHabit(habit)"
+                [ngClass]="{ 'selected-habit' : habit == selectedHabit }">
                 {{habit.name}}
 
                 <i #contextMenuIcon class="fas fa-ellipsis-v context-menu-icon"
-                    (click)="displayContextMenu($event); selectedHabit = habit">
+                    (click)="displayContextMenu($event); selectHabit(habit)">
                 </i>
             </li>
         </ul>
