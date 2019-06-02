@@ -2,7 +2,7 @@
 
   <div class="header-section">
     <div class="selected-habit-section">
-      <span>Use habit tracker daily</span>
+      <span>{{ selectedHabit?.name }}</span>
     </div>
     <div class="month-section">
       <span class="change-month-controls previous-month" (click)="getPreviousMonth()">
@@ -30,7 +30,13 @@
       </tr>
 
       <tr *ngFor="let week of monthWeeks">
-        <td *ngFor="let day of week" (click)="toggleHabitStatus(day)">{{ day?.date.getDate() }} {{ day?.completed }}</td>
+        <td *ngFor="let day of week" 
+          (click)="toggleHabitStatus(day)">
+          <div class="calendar-day"
+            [ngClass]="{'completed-day' : day && day.completed}">
+            {{ day?.date.getDate() }}
+          </div>
+        </td>
       </tr>
     </table>
 
