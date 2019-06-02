@@ -26,6 +26,7 @@ export class AuthService {
             .pipe(
                 map(response => {
                     this.saveAccessToken(response.token);
+                    this.saveUserEmail(email);
                     return response.token;
                 })
             );
@@ -33,6 +34,7 @@ export class AuthService {
 
     logout() {
         localStorage.removeItem('accessToken');
+        localStorage.removeItem('userEmail');
         this.router.navigate(['/login']);
     }
 
@@ -40,8 +42,16 @@ export class AuthService {
         localStorage.setItem('accessToken', token);
     }
 
+    saveUserEmail(email: string) {
+        localStorage.setItem('userEmail', email);
+    }
+
     getAccessToken() {
         return localStorage.getItem('accessToken');
+    }
+
+    getUserEmail() {
+        return localStorage.getItem('userEmail');
     }
 
     isLoggedIn() {

@@ -93,6 +93,11 @@ input:checked + .slider:before {
     font-size: 20px;
 }
 
+.user-section-dropdown .dropdown-menu {
+    right: 0px !important;
+    left: auto !important;
+}
+
 .navbar-toggler i {
     color: #fff;
 }
@@ -112,5 +117,10 @@ input:checked + .slider:before {
 
     #navbar-content {
         margin-top: 20px;
+    }
+
+    .user-section-dropdown .dropdown-menu {
+        right: auto !important;
+        left: 0px !important;
     }
 }

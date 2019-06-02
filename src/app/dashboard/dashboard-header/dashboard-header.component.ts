@@ -14,6 +14,7 @@ export class DashboardHeaderComponent implements OnInit {
 	public displaySidebarSwitch: FormControl;
 	public screenWidth: number;
 	private hideSidebarBreakpoint = 576;
+	public userEmail: string;
 
 	constructor(
 		private dashboardMenuDataService: DashboardMenuDataService,
@@ -22,6 +23,7 @@ export class DashboardHeaderComponent implements OnInit {
 	}
 
 	ngOnInit() {
+		this.userEmail = this.authService.getUserEmail();
 		this.onChanges();
 		this.getScreenSize();
 	}
