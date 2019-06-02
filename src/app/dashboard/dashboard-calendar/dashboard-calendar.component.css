@@ -1,5 +1,6 @@
 .wrapper {
     margin-left: 250px;
+    margin-top: 56px;
     transition: margin-left 250ms ease-in-out;
 }
 
