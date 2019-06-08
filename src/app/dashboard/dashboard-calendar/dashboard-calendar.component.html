@@ -31,8 +31,10 @@
 
 			<tr *ngFor="let week of monthWeeks">
 				<td *ngFor="let day of week" (click)="toggleHabitStatus(day)">
-					<div class="calendar-day" [ngClass]="{'completed-day' : day && day.completed}">
-						{{ day?.date.getDate() }}
+					<div class="calendar-day">
+						<div class="calendar-circle" [ngClass]="{'completed-day' : day && day.completed}">
+						</div>
+						<span>{{ day?.date.getDate() }}</span>
 					</div>
 				</td>
 			</tr>
