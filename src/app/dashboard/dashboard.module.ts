@@ -12,6 +12,7 @@ import {
 import { DashboardSidebarComponent } from './dashboard-sidebar/dashboard-sidebar.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DashboardCalendarComponent } from './dashboard-calendar/dashboard-calendar.component';
+import { TruncateTextPipe } from '../shared/pipes/truncate-text.pipe';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { DashboardCalendarComponent } from './dashboard-calendar/dashboard-calen
 		DashboardHeaderComponent,
 		DashboardComponent,
 		DashboardSidebarComponent,
-		DashboardCalendarComponent
+		DashboardCalendarComponent,
+		TruncateTextPipe
 	],
 	imports: [
 		CommonModule,

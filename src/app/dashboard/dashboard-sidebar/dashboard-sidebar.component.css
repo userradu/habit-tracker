@@ -5,6 +5,7 @@
     background-color: #410275;
     border-top: 1px solid #3B026A;
     transition: transform 250ms ease-in-out;
+    z-index: 1;
 }
 
 .hide-sidebar {
@@ -90,6 +91,7 @@
     -webkit-box-shadow: 7px 7px 5px -6px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 7px 7px 5px -6px rgba(0, 0, 0, 0.75);
     box-shadow: 7px 7px 5px -6px rgba(0, 0, 0, 0.75);
+    z-index: 3;
 }
 
 .context-menu ul {
