@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { RegisterService } from '../register/register.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
 	selector: 'app-confirm-account',
@@ -18,8 +17,7 @@ export class ConfirmAccountComponent implements OnInit {
 		private registerService: RegisterService,
 		private route: ActivatedRoute,
 		private toastr: ToastrService,
-		private router: Router,
-		private authService: AuthService
+		private router: Router
 	) { }
 
 	ngOnInit() {

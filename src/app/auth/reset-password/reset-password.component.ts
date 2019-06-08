@@ -6,7 +6,6 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ResetPasswordService } from './reset-password.service';
 import { confirmPasswordValidation } from 'src/app/shared/directives/custom-validation-rules/confirm-password.directive';
 import { ParseServerErrorsService } from 'src/app/shared/services/parse-server-errors.service';
-import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
 	selector: 'app-reset-password',
@@ -41,8 +40,7 @@ export class ResetPasswordComponent implements OnInit {
 		private router: Router,
 		private route: ActivatedRoute,
 		private resetPasswordService: ResetPasswordService,
-		private parseServerErrorsService: ParseServerErrorsService,
-		private authService: AuthService
+		private parseServerErrorsService: ParseServerErrorsService
 	) { }
 
 	ngOnInit() {

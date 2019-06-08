@@ -6,11 +6,11 @@ import { ForgotPasswordComponent } from './forgot-password.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [ForgotPasswordComponent],
-  imports: [
-    CommonModule,
-    ForgotPasswordRoutingModule,
-    ReactiveFormsModule
-  ]
+	declarations: [ForgotPasswordComponent],
+	imports: [
+		CommonModule,
+		ForgotPasswordRoutingModule,
+		ReactiveFormsModule
+	]
 })
 export class ForgotPasswordModule { }

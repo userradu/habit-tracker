@@ -1,45 +1,43 @@
 <div class="wrapper" [ngClass]="{'full-width': fullWidth}">
 
-  <div class="header-section">
-    <div class="selected-habit-section">
-      <span>{{ selectedHabit?.name }}</span>
-    </div>
-    <div class="month-section">
-      <span class="change-month-controls previous-month" (click)="getPreviousMonth()">
-        <i class="fas fa-angle-left"></i>
-      </span>
+	<div class="header-section">
+		<div class="selected-habit-section">
+			<span>{{ selectedHabit?.name }}</span>
+		</div>
+		<div class="month-section">
+			<span class="change-month-controls previous-month" (click)="getPreviousMonth()">
+				<i class="fas fa-angle-left"></i>
+			</span>
 
-      <span class="selected-month">{{ selectedDate | date: 'MMMM yyyy'}}</span>
+			<span class="selected-month">{{ selectedDate | date: 'MMMM yyyy'}}</span>
 
-      <span class="change-month-controls next-month" (click)="getNextMonth()">
-        <i class="fas fa-angle-right"></i>
-      </span>
-    </div>
-  </div>
+			<span class="change-month-controls next-month" (click)="getNextMonth()">
+				<i class="fas fa-angle-right"></i>
+			</span>
+		</div>
+	</div>
 
-  <div class="calendar-section">
-    <table>
-      <tr>
-        <th>Sun</th>
-        <th>Mon</th>
-        <th>Tue</th>
-        <th>Wed</th>
-        <th>Thu</th>
-        <th>Fri</th>
-        <th>Sat</th>
-      </tr>
+	<div class="calendar-section">
+		<table>
+			<tr>
+				<th>Sun</th>
+				<th>Mon</th>
+				<th>Tue</th>
+				<th>Wed</th>
+				<th>Thu</th>
+				<th>Fri</th>
+				<th>Sat</th>
+			</tr>
 
-      <tr *ngFor="let week of monthWeeks">
-        <td *ngFor="let day of week" 
-          (click)="toggleHabitStatus(day)">
-          <div class="calendar-day"
-            [ngClass]="{'completed-day' : day && day.completed}">
-            {{ day?.date.getDate() }}
-          </div>
-        </td>
-      </tr>
-    </table>
+			<tr *ngFor="let week of monthWeeks">
+				<td *ngFor="let day of week" (click)="toggleHabitStatus(day)">
+					<div class="calendar-day" [ngClass]="{'completed-day' : day && day.completed}">
+						{{ day?.date.getDate() }}
+					</div>
+				</td>
+			</tr>
+		</table>
 
-  </div>
+	</div>
 
 </div>

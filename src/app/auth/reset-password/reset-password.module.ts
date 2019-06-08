@@ -6,11 +6,11 @@ import { ResetPasswordComponent } from './reset-password.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [ResetPasswordComponent],
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    ResetPasswordRoutingModule
-  ]
+	declarations: [ResetPasswordComponent],
+	imports: [
+		CommonModule,
+		ReactiveFormsModule,
+		ResetPasswordRoutingModule
+	]
 })
 export class ResetPasswordModule { }

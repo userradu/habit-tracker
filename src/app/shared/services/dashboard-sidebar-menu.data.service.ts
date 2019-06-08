@@ -2,17 +2,17 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+	providedIn: 'root'
 })
 export class DashboardSidebarMenuDataService {
 
-  private dashboardSidebarMenuActionsSource = new BehaviorSubject(null);
-  dashboardSidebarMenuActions$ = this.dashboardSidebarMenuActionsSource.asObservable();
+	private dashboardSidebarMenuActionsSource = new BehaviorSubject(null);
+	dashboardSidebarMenuActions$ = this.dashboardSidebarMenuActionsSource.asObservable();
 
-  constructor() { }
+	constructor() { }
 
-  setAction(action) {
-    this.dashboardSidebarMenuActionsSource.next(action)
-  }
+	setAction(action) {
+		this.dashboardSidebarMenuActionsSource.next(action)
+	}
 
 }

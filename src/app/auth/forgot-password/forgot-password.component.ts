@@ -6,7 +6,6 @@ import { Router } from '@angular/router';
 import { ForgotPasswordService } from './forgot-password.service';
 import { CheckEmailExistsValidator } from './custom-validation-rules/check-email-exists.directive';
 import { CheckEmailService } from 'src/app/shared/services/check-email.service';
-import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
 	selector: 'app-forgot-password',
@@ -39,8 +38,7 @@ export class ForgotPasswordComponent implements OnInit {
 		private toastr: ToastrService,
 		private router: Router,
 		private forgotPasswordService: ForgotPasswordService,
-		private checkEmailService: CheckEmailService,
-		private authService: AuthService
+		private checkEmailService: CheckEmailService
 	) {}
 
 	ngOnInit() {
