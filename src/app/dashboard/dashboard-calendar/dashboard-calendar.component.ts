@@ -132,6 +132,8 @@ export class DashboardCalendarComponent implements OnInit {
 	}
 
 	toggleHabitStatus(day: any) {
+		if (!day) return;
+
 		if (!day.completed) {
 			this.historyService.addDay(this.selectedHabit._id, day.date)
 				.subscribe(() => {
