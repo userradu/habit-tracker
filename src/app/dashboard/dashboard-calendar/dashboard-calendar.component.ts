@@ -100,9 +100,10 @@ export class DashboardCalendarComponent implements OnInit {
 		if (!this.selectedHabit) return;
 
 		let filter = {
-			year: this.selectedDate.getFullYear(),
-			month: this.selectedDate.getMonth() + 1
+			startDate: new Date(this.selectedDate.getFullYear(), this.selectedDate.getMonth(), 1).toJSON(),
+			endDate: new Date(this.selectedDate.getFullYear(), this.selectedDate.getMonth() + 1, 0).toJSON()
 		};
+		
 		this.historyService.getHabitHistory(this.selectedHabit._id, filter)
 			.subscribe((res: any) => this.parseWeeks(res.history))
 	}

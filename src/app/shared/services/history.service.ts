@@ -16,7 +16,7 @@ export class HistoryService {
         let url = `${this.apiUrl}/history/${habitId}`;
         
         if (filter) {
-            url += `?year=${filter.year}&month=${filter.month}`;
+            url += `?startDate=${filter.startDate}&endDate=${filter.endDate}`;
         }
         return this.http.get(url);
     }
