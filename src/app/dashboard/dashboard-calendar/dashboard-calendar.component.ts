@@ -94,6 +94,11 @@ export class DashboardCalendarComponent implements OnInit {
 	}
 
 	getHabitHistory() {
+
+		this.setAllMonthDaysToUncompleted();
+
+		if (!this.selectedHabit) return;
+
 		let filter = {
 			year: this.selectedDate.getFullYear(),
 			month: this.selectedDate.getMonth() + 1
@@ -103,14 +108,6 @@ export class DashboardCalendarComponent implements OnInit {
 	}
 
 	parseWeeks(history) {
-		for (let i = 0; i < this.monthWeeks.length; i++) {
-			for (let j = 0; j < this.monthWeeks[i].length; j++) {
-				if (this.monthWeeks[i][j]) {
-					this.monthWeeks[i][j].completed = false;
-				}
-			}
-		}
-
 		for (let i = 0; i < this.monthWeeks.length; i++) {
 
 			for (let j = 0; j < this.monthWeeks[i].length; j++) {
@@ -131,8 +128,18 @@ export class DashboardCalendarComponent implements OnInit {
 		}
 	}
 
+	setAllMonthDaysToUncompleted() {
+		for (let i = 0; i < this.monthWeeks.length; i++) {
+			for (let j = 0; j < this.monthWeeks[i].length; j++) {
+				if (this.monthWeeks[i][j]) {
+					this.monthWeeks[i][j].completed = false;
+				}
+			}
+		}
+	}
+
 	toggleHabitStatus(day: any) {
-		if (!day) return;
+		if (!day || !this.selectedHabit) return;
 
 		if (!day.completed) {
 			this.historyService.addDay(this.selectedHabit._id, day.date)

@@ -67,6 +67,9 @@ export class DashboardSidebarComponent implements OnInit {
 				if (this.habits.length) {
 					this.selectHabit(this.habits[0]);
 				}
+				else {
+					this.selectHabit(null);
+				}
 			});
 	}
 
