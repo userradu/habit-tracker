@@ -13,7 +13,7 @@
                 (mouseleave)="contextMenuIcon.style.display = 'none'"
                 (click)="selectHabit(habit)"
                 [ngClass]="{ 'selected-habit' : habit == selectedHabit }">
-                {{habit.name | truncateText:[25]}}
+                {{habit.name | truncateText:[20]}}
 
                 <i #contextMenuIcon class="fas fa-ellipsis-v context-menu-icon"
                     (click)="displayContextMenu($event); selectHabit(habit)">
