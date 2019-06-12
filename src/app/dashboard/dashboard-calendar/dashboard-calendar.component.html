@@ -34,7 +34,9 @@
 					<div class="calendar-day">
 						<div class="calendar-circle" [ngClass]="{'completed-day' : day && day.completed}">
 						</div>
-						<span>{{ day?.date.getDate() }}</span>
+						<span [ngClass]="{'current-date' : day && day.date.getTime() == currentDate.getTime()}">
+							{{ day?.date.getDate() }}
+						</span>
 					</div>
 				</td>
 			</tr>

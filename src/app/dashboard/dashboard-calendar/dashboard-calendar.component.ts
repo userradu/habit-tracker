@@ -11,6 +11,7 @@ import { HistoryService } from 'src/app/shared/services/history.service';
 export class DashboardCalendarComponent implements OnInit {
 
 	public selectedDate: Date;
+	public currentDate: Date;
 	public monthWeeks: Array<any>;
 	public fullWidth: boolean = false;
 	selectedHabit: any;
@@ -23,6 +24,7 @@ export class DashboardCalendarComponent implements OnInit {
 
 	ngOnInit() {
 		this.selectedDate = new Date();
+		this.getCurrentDate();
 		this.createCalendar();
 
 		this.dashboardMenuDataService.dashboardMenuActions$.subscribe(message => {
@@ -39,6 +41,14 @@ export class DashboardCalendarComponent implements OnInit {
 				}
 			}
 		});
+	}
+
+	getCurrentDate() {
+		this.currentDate = new Date();
+		this.currentDate.setHours(0);
+		this.currentDate.setMinutes(0);
+		this.currentDate.setSeconds(0);
+		this.currentDate.setMilliseconds(0);
 	}
 
 	getNumberOfWeeksInMonth(year: number, month: number) {
